@@ -1,0 +1,48 @@
+GET http://localhost:3000/movies
+###
+
+GET http://localhost:3000/movies/2
+###
+
+
+POST http://localhost:3000/movies/create
+Content-Type: application/json
+
+{
+  "first_name": "Meryl",
+  "last_name": "Streep",
+  "known_for": "Devil Wears Prada"
+}
+###
+PATCH http://localhost:3000/movies/2
+Content-Type: application/json
+
+{
+  "known_for": "Rush Hour"
+}
+
+###
+DELETE http://localhost:3000/movies/7
+###
+GET http://localhost:3000/movies
+###
+
+POST http://localhost:3000/movies/create
+Content-Type: application/json
+
+{
+  "title": "Spider Man",
+  "year": "2002",
+  "plot": "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family."
+}
+###
+PATCH http://localhost:3000/movies/2
+Content-Type: application/json
+
+{
+  "year": "2002"
+}
+
+###
+DELETE http://localhost:3000/movies/5
+###
