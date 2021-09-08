@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
-  belongs_to :movie
+  validates :title, :year, :director, presence: true
+  validates :year, numericality: { greater_than: 1888 }
+  validates :plot, length: { in: 10..500 }
 
-  def movie_plot
-    movie_plot = movie[:plot]
-  end
+  has_many :actors
 end
