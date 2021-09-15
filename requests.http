@@ -46,3 +46,23 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/movies/5
 ###
+
+
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzE2NjI3OTB9.XwsLKYJlqKHGnqILWC7eraHztIs92zT4P63JMQ9wA2U
+### Actors index
+GET http://localhost:3000/actors
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+###Actors show
+GET http://localhost:3000/actors/2
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### Actors Create
+POST http://localhost:3000/actors
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+

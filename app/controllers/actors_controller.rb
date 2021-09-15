@@ -1,12 +1,14 @@
 class ActorsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     actor = Actor.all
-    render json: actor.as_json
+    render json: actor
   end
 
   def show
     actor = Actor.find(params[:id])
-    render json: actor.as_json
+    render json: actor
   end
 
   def create
@@ -19,9 +21,10 @@ class ActorsController < ApplicationController
       movie_id: params[:movie_id],
     )
     if actor.save
-    render json: actor
-    else 
+      render json: actor
+    else
       render json: actor.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -38,7 +41,6 @@ class ActorsController < ApplicationController
       render json: actor.errors.full_messages, status: :unprocessable_entity
     end
   end
-
 
   def destroy
     actor = Actor.find(params[:id])
